@@ -1,48 +1,130 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <nav>
+    <h1> This is my website</h1>
+  
+  <router-view/>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it brodie!" />
-    </div>
-  </header>
+  <aside>
+  <p> Menu </p>
+  <a href="javascript:void(0)">
+    <i class="fa fa-user-o" aria-hidden="true"></i>
+    <router-link to="/about">About</router-link> 
+  </a>
+  <a href="javascript:void(0)">
+    <i class="fa fa-laptop" aria-hidden="true"></i>
+    <router-link to="/Home"> Home</router-link> 
+  </a>
+  <a href="javascript:void(0)">
+    <i class="fa fa-clone" aria-hidden="true"></i>
+    <router-link to="/Library"> Library</router-link> 
+  </a>
+  <a href="javascript:void(0)">
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <router-link to="/Premium"> Premium</router-link> 
+  </a>
+  <a href="javascript:void(0)">
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <router-link to="/Recommendations">Recommendations</router-link> 
+  </a>
+</aside>
 
-  <main>
-    <TheWelcome />
-  </main>
+<div class="social">
+  <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
+    <i class="fa fa-linkedin"></i>
+  </a>
+</div>
+</nav>
 </template>
 
 
 <style scoped>
-header {
-  line-height: 1.5;
+aside {
+  color: #fff;
+  width: 250px;
+  padding-left: 20px;
+  height: 100vh;
+  background-image: linear-gradient(30deg , #0a6540, #1bd788);
+  border-top-right-radius: 80px;
 }
 
-.logo {
+aside a {
+  font-size: 12px;
+  color: #fff;
   display: block;
-  margin: 0 auto 2rem;
+  padding: 5px;
+  padding-left: 30px;
+  text-decoration: none;
+  -webkit-tap-highlight-color:transparent;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+aside a:hover {
+  color: #023216;
+  background: #fff;
+  outline: none;
+  position: relative;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+aside a i {
+  margin-right: 5px;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+aside a:hover::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 100%;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0 20px 0 0 #fff;
+}
+
+aside a:hover::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  top: 38px;
+  right: 0;
+  height: 35px;
+  width: 35px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -20px 0 0 #fff;
+}
+
+aside p {
+  margin: 0;
+  padding: 40px 0;
+}
+
+body {
+  font-family: 'Roboto';
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.social {
+  height: 0;  
+}
+
+.social i:before {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+  position: fixed;
+  color: #fff;
+  background: #0077B5;
+  padding: 10px;
+  border-radius: 50%;
+  top:5px;
+  right:5px;
 }
 </style>
