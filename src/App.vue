@@ -67,7 +67,7 @@ async function fetchData() {
 aside {
   color: rgb(0, 13, 108);
   width: 250px;
-  height: 150vh;
+  height: 120vh;
   background-image: linear-gradient(30deg , #0a6540, #1bd788);
   border-top-right-radius: 80px;
   size: 25px;
