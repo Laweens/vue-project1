@@ -3,6 +3,7 @@ async function fetchData() {
   let result = await fetch("https://freesound.org/apiv2/search/text/?query=piano&token=U08a0ydB5JLZ6alofwKXbn48IPYWXjY8H53IneRy")
   console.log(result)
 }
+
 </script>
 
 <template>
@@ -45,11 +46,20 @@ async function fetchData() {
   </a>
 </div>
 </nav>
-<main>
-                
-          
-   
- </main>
+
+<div v-if="isLoading">
+      <p>Loading...</p>
+    </div>
+    <div v-else>
+      <ul>
+        <li v-for="track in tracks" :key="track.id">
+          <img :src="track.artworkUrl" :alt="track.title">
+          <h3>{{ track.title }}</h3>
+          <p>{{ track.artist }}</p>
+          <audio controls :src="track.streamUrl"></audio>
+        </li>
+      </ul>
+    </div>
 </template>
 
 
@@ -57,7 +67,7 @@ async function fetchData() {
 aside {
   color: rgb(0, 13, 108);
   width: 250px;
-  height: 100vh;
+  height: 150vh;
   background-image: linear-gradient(30deg , #0a6540, #1bd788);
   border-top-right-radius: 80px;
   size: 25px;

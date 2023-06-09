@@ -33,7 +33,7 @@ export default {
         <v-text-field v-model="searchText" label="Search" @Keydown.enter="search" />
          </v-list-item-title>
          </v-list-item>
-<v-list-item v-for="result in restults" :key="result.id" link>
+<v-list-item v-for="result in results" :key="result.id" link>
     <v-list-item-title>{{ results.name }}</v-list-item-title>
 </v-list-item>
 </template>
